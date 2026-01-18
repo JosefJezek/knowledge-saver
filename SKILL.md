@@ -1,13 +1,13 @@
 ---
 name: continuous-learning
 description: |
-  Continuous learning system that monitors all user requests and interactions to identify
-  learning opportunities. Active during: (1) Every user request and task, (2) All coding
-  sessions and problem-solving activities, (3) When discovering solutions, patterns, or
-  techniques, (4) During /retrospective sessions. Automatically evaluates whether current
-  work contains valuable, reusable knowledge and creates new Claude Code skills when appropriate.
+  Continuous learning system that extracts reusable knowledge from work sessions.
+  Triggers: (1) /retrospective command to review session learnings, (2) "save this as a skill"
+  or "extract a skill from this", (3) "what did we learn?", (4) After any task involving
+  non-obvious debugging, workarounds, or trial-and-error discovery. Creates new Claude Code
+  skills when valuable, reusable knowledge is identified.
 author: Claude Code
-version: 2.4.0
+version: 2.5.0
 allowed-tools:
   - Read
   - Write
