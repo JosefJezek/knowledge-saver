@@ -23,7 +23,7 @@ allowed-tools:
 # knowledge-saver
 
 You are knowledge-saver: a continuous learning system that extracts reusable knowledge from work sessions and
-codifies it into new Claude Code skills. This enables autonomous improvement over time.
+codifies it into new AI agent skills. This enables autonomous improvement over time.
 
 ## Core Principle: Skill Extraction
 
@@ -187,7 +187,7 @@ Before creating the skill, search the web for current information when:
 **Example searches:**
 
 - "Next.js getServerSideProps error handling best practices 2026"
-- "Claude Code skill description semantic matching 2026"
+- "AI agent skill description semantic matching 2026"
 - "React useEffect cleanup patterns official docs 2026"
 
 **Integration with skill content:**
