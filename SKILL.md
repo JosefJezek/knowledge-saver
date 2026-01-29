@@ -77,7 +77,7 @@ Extract a skill when you encounter:
 - Solution is in official documentation (link to it instead)
 - One-off fix unlikely to recur
 - Standard practice well-known to developers
-- Project-specific config that belongs in CLAUDE.md
+- Project-specific config that belongs in AGENTS.md or CLAUDE.md
 - Mechanical constraint enforceable by code (automate it instead)
 
 **Red flags you're over-extracting:**
@@ -106,9 +106,10 @@ Before extracting, verify the knowledge meets these criteria:
 ```sh
 # Skill directories (project-first, then user-level)
 SKILL_DIRS=(
+  ".agents/skills"
   ".claude/skills"
+  "$HOME/.agents/skills"
   "$HOME/.claude/skills"
-  "$HOME/.codex/skills"
   # Add other tool paths as needed
 )
 
@@ -199,15 +200,15 @@ Before creating the skill, search the web for current information when:
 
 ### Step 4: Structure the Skill
 
-**CRITICAL - CSO (Claude Search Optimization):**
-The description field determines whether Claude finds and loads your skill.
+**CRITICAL - CSO (AI agent Search Optimization):**
+The description field determines whether AI agent finds and loads your skill.
 
 - Start with "Use when:" to focus on triggers
 - Include specific symptoms, error messages, contexts
 - NEVER summarize what the skill does or its workflow
 - Keep under 500 characters
 
-**Why this matters:** Testing revealed that descriptions summarizing workflow cause Claude to follow the description instead of reading the full skill. A description saying "validates and creates files" caused Claude to skip the skill body entirely.
+**Why this matters:** Testing revealed that descriptions summarizing workflow cause AI agent to follow the description instead of reading the full skill. A description saying "validates and creates files" caused AI agent to skip the skill body entirely.
 
 Create a new skill with this structure:
 
@@ -278,9 +279,9 @@ description: |
   Turborepo, and npm workspaces.
 ```
 
-### Step 6: Apply CSO (Claude Search Optimization)
+### Step 6: Apply CSO (AI agent Search Optimization)
 
-**Why CSO matters:** Claude reads skill descriptions to decide which skills to load. Poor descriptions = skills never found.
+**Why CSO matters:** AI agent reads skill descriptions to decide which skills to load. Poor descriptions = skills never found.
 
 **The Critical Rule:**
 
@@ -294,10 +295,10 @@ description: |
 | "Creates skills from session learnings"    | "Use when task required non-obvious investigation"   |
 | "Runs tests and reports coverage"          | "Use when tests fail unexpectedly or coverage drops" |
 
-**Why this matters:** Testing revealed that when descriptions summarize workflow, Claude may follow the description instead of reading the full skill. The skill body becomes documentation Claude skips.
+**Why this matters:** Testing revealed that when descriptions summarize workflow, AI agent may follow the description instead of reading the full skill. The skill body becomes documentation AI agent skips.
 
 **Keyword Coverage:**
-Include words Claude would search for:
+Include words AI agent would search for:
 
 - Error messages: "ENOENT", "401 Unauthorized", "timeout"
 - Symptoms: "flaky", "hangs", "silent failure"
@@ -314,11 +315,16 @@ Include words Claude would search for:
 
 Save new skills to the appropriate location:
 
-- **Project-specific skills**: `.claude/skills/[skill-name]/SKILL.md`
-- **User-wide skills**: `~/.claude/skills/[skill-name]/SKILL.md`
+- **Project-specific skills**: `.agents/skills/[skill-name]/SKILL.md`
 
 Include any supporting scripts in a `scripts/` subdirectory if the skill benefits from
 executable helpers.
+
+Install the skill:
+
+```sh
+npx skills add .agents/skills/[skill-name] -y -g -s [skill-name]
+```
 
 ## Retrospective Mode
 
@@ -380,12 +386,12 @@ Before finalizing a skill, verify:
 
 ### Mistake 3: Workflow summaries in description
 
-**Problem:** Claude follows description instead of reading skill body
+**Problem:** AI agent follows description instead of reading skill body
 **Fix:** Description contains ONLY trigger conditions, never workflow
 
 ### Mistake 4: Unsupported frontmatter fields
 
-**Problem:** Adding author/version/date fields that Claude ignores
+**Problem:** Adding author/version/date fields that AI agent ignores
 **Fix:** Only use `name`, `description`, and supported fields like `allowed-tools`
 
 ### Rationalization Table
@@ -530,8 +536,8 @@ If yes to any, invoke this skill immediately.
 
 **Test scenarios run:**
 
-1. **Trigger recognition:** Does Claude invoke knowledge-saver after non-obvious debugging?
-2. **Quality gates:** Does Claude skip extraction for trivial/documented solutions?
+1. **Trigger recognition:** Does AI agent invoke knowledge-saver after non-obvious debugging?
+2. **Quality gates:** Does AI agent skip extraction for trivial/documented solutions?
 3. **Template compliance:** Do extracted skills follow the correct template?
 4. **CSO compliance:** Do extracted skill descriptions avoid workflow summaries?
 
