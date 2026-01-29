@@ -1,6 +1,6 @@
 # Research References
 
-This document compiles the academic research that informed the design of Claudeception.
+This document compiles the academic research that informed the design of knowledge-saver.
 
 ## Core Papers
 
@@ -174,8 +174,8 @@ Comprehensive survey covering memory architectures, tool use, and continuous lea
 If referencing this skill in academic work:
 
 ```
-@misc{claudeception,
-  title={Claudeception: Autonomous Skill Extraction for LLM Agents},
+@misc{knowledge-saver,
+  title={knowledge-saver: Autonomous Skill Extraction for LLM Agents},
   author={Claude Code},
   year={2024},
   note={Implements continuous learning patterns from Voyager, CASCADE, SEAgent, and Reflexion research}

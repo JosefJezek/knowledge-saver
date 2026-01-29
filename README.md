@@ -1,4 +1,4 @@
-# Claudeception
+# knowledge-saver
 
 Every time you use an AI coding agent, it starts from zero. You spend an hour debugging some obscure error, the agent figures it out, session ends. Next time you hit the same issue? Another hour.
 
@@ -11,13 +11,13 @@ This skill fixes that. When Claude Code discovers something non-obvious (a debug
 **User-level (recommended)**
 
 ```bash
-git clone https://github.com/blader/Claudeception.git ~/.claude/skills/claudeception
+git clone https://github.com/blader/knowledge-saver.git ~/.claude/skills/knowledge-saver
 ```
 
 **Project-level**
 
 ```bash
-git clone https://github.com/blader/Claudeception.git .claude/skills/claudeception
+git clone https://github.com/blader/knowledge-saver.git .claude/skills/knowledge-saver
 ```
 
 ### Step 2: Set up the activation hook (recommended)
@@ -30,8 +30,8 @@ The skill can activate via semantic matching, but a hook ensures it evaluates ev
 
 ```bash
 mkdir -p ~/.claude/hooks
-cp ~/.claude/skills/claudeception/scripts/claudeception-activator.sh ~/.claude/hooks/
-chmod +x ~/.claude/hooks/claudeception-activator.sh
+cp ~/.claude/skills/knowledge-saver/scripts/knowledge-saver-activator.sh ~/.claude/hooks/
+chmod +x ~/.claude/hooks/knowledge-saver-activator.sh
 ```
 
 2. Add the hook to your global Claude settings (`~/.claude/settings.json`):
@@ -44,7 +44,7 @@ chmod +x ~/.claude/hooks/claudeception-activator.sh
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/claudeception-activator.sh"
+            "command": "~/.claude/hooks/knowledge-saver-activator.sh"
           }
         ]
       }
@@ -59,8 +59,8 @@ chmod +x ~/.claude/hooks/claudeception-activator.sh
 
 ```bash
 mkdir -p .claude/hooks
-cp .claude/skills/claudeception/scripts/claudeception-activator.sh .claude/hooks/
-chmod +x .claude/hooks/claudeception-activator.sh
+cp .claude/skills/knowledge-saver/scripts/knowledge-saver-activator.sh .claude/hooks/
+chmod +x .claude/hooks/knowledge-saver-activator.sh
 ```
 
 2. Add the hook to your project settings (`.claude/settings.json` in the repo):
@@ -73,7 +73,7 @@ chmod +x .claude/hooks/claudeception-activator.sh
         "hooks": [
           {
             "type": "command",
-            "command": ".claude/hooks/claudeception-activator.sh"
+            "command": ".claude/hooks/knowledge-saver-activator.sh"
           }
         ]
       }
@@ -102,7 +102,7 @@ The skill activates automatically when Claude Code:
 Trigger a learning retrospective:
 
 ```
-/claudeception
+/knowledge-saver
 ```
 
 Or explicitly request skill extraction:
