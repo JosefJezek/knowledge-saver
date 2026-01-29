@@ -6,18 +6,10 @@ This skill fixes that. When Claude Code discovers something non-obvious (a debug
 
 ## Installation
 
-### Step 1: Clone the skill
+### Step 1: Install the skill
 
-**User-level (recommended)**
-
-```bash
-git clone https://github.com/blader/knowledge-saver.git ~/.claude/skills/knowledge-saver
-```
-
-**Project-level**
-
-```bash
-git clone https://github.com/blader/knowledge-saver.git .claude/skills/knowledge-saver
+```sh
+npx skills add JosefJezek/knowledge-saver -y -g -s knowledge-saver
 ```
 
 ### Step 2: Set up the activation hook (recommended)
