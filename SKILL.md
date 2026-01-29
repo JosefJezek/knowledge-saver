@@ -311,6 +311,13 @@ Include words AI agent would search for:
 - Move heavy reference material to separate files
 - Use cross-references instead of duplicating content
 
+**Skill Naming:**
+
+- Use descriptive kebab-case names
+- Reflect core problem/solution
+- Avoid generic names like "debugging-skill" or "utility-skill"
+- Prefix with `ks-` and specific area for organizational skills (e.g. `ks-db-connection-pool`)
+
 ### Step 7: Save the Skill
 
 Save new skills to the appropriate location:
